@@ -21,7 +21,7 @@ class eshop extends StatelessWidget {
         '/': (context) => const SplashScreen(),
         '/home': (context) => const Homescreen(),
         '/home_2': (context) => const Home2screen(),
-        '/sginin': (context) => const SginIn(),
+        '/sginin': (context) => SginIn(),
         '/sginup': (context) => const SginUp(),
         '/forgot': (context) => const Forgetpassword(),
       },

@@ -70,7 +70,7 @@ class Home2screen extends StatelessWidget {
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const SginIn(),
+                  builder: (context) => SginIn(),
                 ),
               );
             },
