@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "137743040138",
+    "project_id": "e-shop-iti",
+    "storage_bucket": "e-shop-iti.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:137743040138:android:23f09a4421feb347a73773",
+        "android_client_info": {
+          "package_name": "com.example.eshop"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAHQm2Tyaspup0ws9ZTZ6f24Yq-9eUc5hw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

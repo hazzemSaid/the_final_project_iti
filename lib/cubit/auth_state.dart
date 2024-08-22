@@ -10,13 +10,19 @@ class SginInLoading extends AuthState {}
 
 class SginInSuccess extends AuthState {}
 
-class SginInFailed extends AuthState {}
+class SginInFailed extends AuthState {
+  String? error;
+  SginInFailed({required String error});
+}
 
 class SginUpLoading extends AuthState {}
 
 class SginUpSuccess extends AuthState {}
 
-class SginUpFailed extends AuthState {}
+class SginUpFailed extends AuthState {
+  String? error;
+  SginUpFailed({required String error});
+}
 
 //forgot password
 class ForgotPasswordLoading extends AuthState {}

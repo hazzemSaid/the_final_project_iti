@@ -1,4 +1,4 @@
-import 'package:eshop/screens/home/Onboard1.dart';
+import 'package:eshop/screens/bording/Onboard1.dart';
 import 'package:flutter/material.dart';
 
 import '../../../constrain.dart';
@@ -79,7 +79,7 @@ class _SplashBodyState extends State<SplashBody>
     Future.delayed(const Duration(seconds: 4), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => Homescreen()),
+        MaterialPageRoute(builder: (context) => Onboard1()),
       );
     });
   }

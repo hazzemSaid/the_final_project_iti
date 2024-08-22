@@ -1,8 +1,8 @@
-import 'package:eshop/screens/authScreens/sgin_in.dart';
+import 'package:eshop/screens/bording/Onboard2.dart';
 import 'package:flutter/material.dart';
 
-class Home2screen extends StatelessWidget {
-  const Home2screen({super.key});
+class Onboard1 extends StatelessWidget {
+  const Onboard1({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,14 +12,14 @@ class Home2screen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-              height: 320,
+              height: 350,
               width: double.infinity,
               margin: const EdgeInsets.only(top: 80, right: 10, left: 10),
               child: Stack(
                 children: [
                   Positioned(
                     child: Image.asset(
-                      'assets/images/item(6).png',
+                      'assets/images/item(8).png',
                       width: double.infinity,
                       fit: BoxFit.fitHeight,
                     ),
@@ -27,6 +27,13 @@ class Home2screen extends StatelessWidget {
                   Positioned(
                     top: 50,
                     left: 50,
+                    child: Image.asset(
+                      'assets/images/point.png',
+                    ),
+                  ),
+                  Positioned(
+                    top: 330,
+                    left: 20,
                     child: Image.asset(
                       'assets/images/point.png',
                     ),
@@ -42,36 +49,22 @@ class Home2screen extends StatelessWidget {
               )),
           const SizedBox(
             width: double.infinity,
-            height: 12,
+            height: 10,
           ),
           const Padding(
               padding: EdgeInsets.only(
                 left: 8.0,
                 top: 10,
               ),
-              child: const Column(
-                children: [
-                  Text(
-                    "Follow Latest",
-                    textAlign: TextAlign.right,
-                    style: TextStyle(
-                      fontSize: 35,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black87,
-                      fontFamily: 'AirbnbCereal',
-                    ),
-                  ),
-                  Text(
-                    "Styles  Shose",
-                    textAlign: TextAlign.right,
-                    style: TextStyle(
-                      fontSize: 35,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black87,
-                      fontFamily: 'AirbnbCereal',
-                    ),
-                  ),
-                ],
+              child: const Text(
+                "Start Journey ",
+                textAlign: TextAlign.right,
+                style: TextStyle(
+                  fontSize: 40,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black87,
+                  fontFamily: 'AirbnbCereal',
+                ),
               )),
           const Padding(
               padding: EdgeInsets.only(
@@ -79,24 +72,32 @@ class Home2screen extends StatelessWidget {
                 top: 10,
               ),
               child: Text(
-                "There Are Many Beautiful And Attractive Plants To Your Room",
+                "with Nike ",
+                style: TextStyle(
+                  fontSize: 40,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black87,
+                  fontFamily: 'AirbnbCereal',
+                ),
+              )),
+          const Padding(
+              padding: EdgeInsets.only(
+                left: 8.0,
+                top: 10,
+              ),
+              child: Text(
+                "Smart, Gorgeous & Fashionable Collection ",
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                   color: Colors.black54,
                 ),
               )),
-          const SizedBox(
-            width: double.infinity,
-            height: 46,
-          ),
           InkWell(
             onTap: () {
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(
-                  builder: (context) => SginIn(),
-                ),
+                MaterialPageRoute(builder: (context) => const Onboard2()),
               );
             },
             child: Container(
@@ -111,7 +112,7 @@ class Home2screen extends StatelessWidget {
               ),
               child: const Center(
                 child: Text(
-                  'Next',
+                  'Get Started',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 20,
@@ -126,7 +127,3 @@ class Home2screen extends StatelessWidget {
     );
   }
 }
-/*
-this code must optimize later
-
- */
