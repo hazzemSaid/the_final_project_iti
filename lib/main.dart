@@ -4,8 +4,8 @@ import 'package:eshop/screens/authScreens/sginup.dart';
 import 'package:eshop/screens/splash/view/splashscreen.dart';
 import 'package:flutter/material.dart';
 
-import 'screens/home/home2Screen.dart';
-import 'screens/home/homeScreen.dart';
+import 'screens/home/Onboard1.dart';
+import 'screens/home/Onboard2.dart';
 
 void main() {
   runApp(const eshop());

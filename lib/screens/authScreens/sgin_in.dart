@@ -1,3 +1,6 @@
+import 'package:eshop/core/widgets/emailtextform.dart';
+import 'package:eshop/core/widgets/labeltext.dart';
+import 'package:eshop/core/widgets/passwordformtext.dart';
 import 'package:eshop/screens/authScreens/sginup.dart';
 import 'package:flutter/material.dart';
 
@@ -10,7 +13,8 @@ class _SginInState extends State<SginIn> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   bool seePassword = true;
-
+  String? email;
+  String? password;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,13 +26,13 @@ class _SginInState extends State<SginIn> {
             padding: const EdgeInsets.symmetric(vertical: 8.0),
             child: Column(
               children: [
-                SizedBox(
+                const SizedBox(
                   width: double.infinity,
                   height: 80,
                 ),
                 Container(
                   height: 100,
-                  child: Column(
+                  child: const Column(
                     children: [
                       Text(
                         "Hello again!",
@@ -54,230 +58,183 @@ class _SginInState extends State<SginIn> {
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: double.infinity,
                   height: 30,
                 ),
-                Container(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(
-                          left: 4,
-                          bottom: 10,
-                        ),
-                        child: Align(
-                          alignment: Alignment.topLeft,
-                          child: Text(
-                            'Email Address',
-                            style: TextStyle(
-                              fontFamily: 'AirbnbCereal',
-                              fontSize: 15,
-                              color: Colors.black,
-                            ),
-                          ),
-                        ),
-                      ),
-                      TextFormField(
-                        cursorColor: Colors.green,
-                        cursorErrorColor: Colors.green,
-                        decoration: InputDecoration(
-                          disabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(40),
-                          ),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(40),
-                          ),
-                          labelText: ' example@gmail.com',
-                        ),
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Please enter some text';
-                          }
-                          return null;
-                        },
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(
+                Labeltext(text: "Email Address"),
+                Tfrom(
+                    text: 'email',
+                    hint: 'examole@gmail.com',
+                    onChanged: (val) {
+                      email = val;
+                    }),
+                const SizedBox(
                   width: double.infinity,
                   height: 10,
                 ),
-                Container(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(
-                          left: 4,
-                          bottom: 10,
-                        ),
-                        child: Align(
-                          alignment: Alignment.topLeft,
-                          child: Text(
-                            'password',
-                            style: TextStyle(
-                              fontFamily: 'AirbnbCereal',
-                              fontSize: 15,
-                              color: Colors.black,
-                            ),
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        width: double.infinity,
-                        height: 5,
-                      ),
-                      TextFormField(
-                        cursorColor: Colors.green,
-                        cursorErrorColor: Colors.green,
-                        decoration: InputDecoration(
-                          suffixIcon: IconButton(
-                              onPressed: () {
-                                seePassword = !seePassword;
-                                setState(() {});
-                              },
-                              icon: Icon(Icons.remove_red_eye)),
-
-                          disabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(40),
-                          ),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(40),
-                          ),
-                          labelText: 'password',
-                          // This hides the text
-                        ),
-                        obscureText: seePassword,
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Please enter some text';
-                          }
-                          return null;
-                        },
-                      ),
-                      SizedBox(
-                        width: double.infinity,
-                        height: 50,
-                      ),
-                      InkWell(
-                        onTap: () {
-                          if (formKey.currentState!.validate()) {
-                            Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const SginUp(),
-                              ),
-                            );
-                          }
-                        },
-                        child: Container(
-                          height: 70,
-                          width: 380,
-                          alignment: Alignment.center,
-                          padding: const EdgeInsets.all(10),
-                          decoration: BoxDecoration(
-                            shape: BoxShape.rectangle,
-                            color: const Color(0xFF5B9EE1),
-                            borderRadius: BorderRadius.circular(30),
-                          ),
-                          child: Text(
-                            'Sgin In',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 25,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        width: double.infinity,
-                        height: 10,
-                      ),
-                      InkWell(
-                        onTap: () {
-                          print("sgin in with google");
-                        },
-                        child: Container(
-                          height: 70,
-                          width: 380,
-                          alignment: Alignment.center,
-                          padding: const EdgeInsets.all(10),
-                          decoration: BoxDecoration(
-                            shape: BoxShape.rectangle,
-                            color: const Color.fromARGB(255, 228, 226, 226),
-                            borderRadius: BorderRadius.circular(30),
-                          ),
-                          child: Row(
-                            children: [
-                              SizedBox(
-                                width: 70,
-                              ),
-                              Image.asset(
-                                'assets/images/google.png',
-                                width: 30,
-                                height: 30,
-                              ),
-                              SizedBox(
-                                width: 15,
-                              ),
-                              Text(
-                                'Sgin In with google',
-                                style: TextStyle(
-                                  color: Color(0xfF1A2530),
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                  fontFamily: 'AirbnbCereal',
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        width: double.infinity,
-                        height: 50,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text('Don’t have an account?',
-                              style: TextStyle(
-                                fontSize: 13,
-                                fontFamily: 'AirbnbCereal',
-                              )),
-                          SizedBox(
-                            width: 5,
-                          ),
-                          GestureDetector(
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => const SginUp(),
-                                ),
-                              );
-                            },
-                            child: Text(
-                              "Sgin Up for free",
-                              style: TextStyle(
-                                color: Color.fromARGB(255, 3, 3, 4),
-                                fontSize: 13,
-                                fontWeight: FontWeight.bold,
-                                fontFamily: 'AirbnbCereal',
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
-                    ],
-                  ),
-                )
+                Labeltext(text: "Password"),
+                const SizedBox(
+                  width: double.infinity,
+                  height: 5,
+                ),
+                pfrom(
+                    onPressed: () {
+                      setState(() {
+                        seePassword = !seePassword;
+                      });
+                    },
+                    seePassword: seePassword,
+                    text: 'password',
+                    hint: 'make a strong password',
+                    onChanged: (val) {
+                      password = val;
+                    }),
+                const SizedBox(
+                  width: double.infinity,
+                  height: 50,
+                ),
+                sginINbutton(
+                    formKey: formKey, email: email, password: password),
+                const SizedBox(
+                  width: double.infinity,
+                  height: 10,
+                ),
+                sginINwithgooglebutton(),
+                const SizedBox(
+                  width: double.infinity,
+                  height: 50,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text('Don’t have an account?',
+                        style: TextStyle(
+                          fontSize: 13,
+                          fontFamily: 'AirbnbCereal',
+                        )),
+                    const SizedBox(
+                      width: 5,
+                    ),
+                    go_sginup(context)
+                  ],
+                ),
               ],
             ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  GestureDetector go_sginup(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const SginUp(),
+          ),
+        );
+      },
+      child: const Text(
+        "Sgin Up for free",
+        style: TextStyle(
+          color: Color.fromARGB(255, 3, 3, 4),
+          fontSize: 13,
+          fontWeight: FontWeight.bold,
+          fontFamily: 'AirbnbCereal',
+        ),
+      ),
+    );
+  }
+
+  InkWell sginINwithgooglebutton() {
+    return InkWell(
+      onTap: () {
+        print("sgin in with google");
+      },
+      child: Container(
+        height: 70,
+        width: 380,
+        alignment: Alignment.center,
+        padding: const EdgeInsets.all(10),
+        decoration: BoxDecoration(
+          shape: BoxShape.rectangle,
+          color: const Color.fromARGB(255, 228, 226, 226),
+          borderRadius: BorderRadius.circular(30),
+        ),
+        child: Row(
+          children: [
+            const SizedBox(
+              width: 70,
+            ),
+            Image.asset(
+              'assets/images/google.png',
+              width: 30,
+              height: 30,
+            ),
+            const SizedBox(
+              width: 15,
+            ),
+            const Text(
+              'Sgin In with google',
+              style: TextStyle(
+                color: Color(0xfF1A2530),
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'AirbnbCereal',
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class sginINbutton extends StatelessWidget {
+  const sginINbutton({
+    super.key,
+    required this.formKey,
+    required this.email,
+    required this.password,
+  });
+
+  final GlobalKey<FormState> formKey;
+  final String? email;
+  final String? password;
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () {
+        if (formKey.currentState!.validate()) {
+          if (email != null && password != null) {
+            print(email);
+            print(password);
+          } else {
+            // Show error message or handle the null case
+            print('Email or password is null');
+          }
+        }
+      },
+      child: Container(
+        height: 70,
+        width: 380,
+        alignment: Alignment.center,
+        padding: const EdgeInsets.all(10),
+        decoration: BoxDecoration(
+          shape: BoxShape.rectangle,
+          color: const Color(0xFF5B9EE1),
+          borderRadius: BorderRadius.circular(30),
+        ),
+        child: const Text(
+          'Sign In', // Corrected the typo
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 25,
+            fontWeight: FontWeight.bold,
           ),
         ),
       ),

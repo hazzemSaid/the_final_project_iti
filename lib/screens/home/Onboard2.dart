@@ -12,13 +12,34 @@ class Home2screen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            margin: const EdgeInsets.only(top: 65, right: 10, left: 10),
-            child: Image.asset(
-              fit: BoxFit.contain,
-              'assets/images/item(6).png',
-              width: 400,
-            ),
-          ),
+              height: 320,
+              width: double.infinity,
+              margin: const EdgeInsets.only(top: 80, right: 10, left: 10),
+              child: Stack(
+                children: [
+                  Positioned(
+                    child: Image.asset(
+                      'assets/images/item(6).png',
+                      width: double.infinity,
+                      fit: BoxFit.fitHeight,
+                    ),
+                  ),
+                  Positioned(
+                    top: 50,
+                    left: 50,
+                    child: Image.asset(
+                      'assets/images/point.png',
+                    ),
+                  ),
+                  Positioned(
+                    top: 260,
+                    left: 320,
+                    child: Image.asset(
+                      'assets/images/point.png',
+                    ),
+                  ),
+                ],
+              )),
           const SizedBox(
             width: double.infinity,
             height: 12,
@@ -28,15 +49,29 @@ class Home2screen extends StatelessWidget {
                 left: 8.0,
                 top: 10,
               ),
-              child: const Text(
-                "Follow Latest\n   Style Shoes",
-                textAlign: TextAlign.right,
-                style: TextStyle(
-                  fontSize: 35,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black87,
-                  fontFamily: 'AirbnbCereal',
-                ),
+              child: const Column(
+                children: [
+                  Text(
+                    "Follow Latest",
+                    textAlign: TextAlign.right,
+                    style: TextStyle(
+                      fontSize: 35,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black87,
+                      fontFamily: 'AirbnbCereal',
+                    ),
+                  ),
+                  Text(
+                    "Styles  Shose",
+                    textAlign: TextAlign.right,
+                    style: TextStyle(
+                      fontSize: 35,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black87,
+                      fontFamily: 'AirbnbCereal',
+                    ),
+                  ),
+                ],
               )),
           const Padding(
               padding: EdgeInsets.only(
@@ -44,27 +79,17 @@ class Home2screen extends StatelessWidget {
                 top: 10,
               ),
               child: Text(
-                "with Nike ",
-                style: TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black87,
-                  fontFamily: 'AirbnbCereal',
-                ),
-              )),
-          const Padding(
-              padding: EdgeInsets.only(
-                left: 8.0,
-                top: 10,
-              ),
-              child: Text(
-                "There Are Many Beautiful And\n Attractive Plants To Your Room",
+                "There Are Many Beautiful And Attractive Plants To Your Room",
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                   color: Colors.black54,
                 ),
               )),
+          const SizedBox(
+            width: double.infinity,
+            height: 46,
+          ),
           InkWell(
             onTap: () {
               Navigator.pushReplacement(

@@ -1,4 +1,4 @@
-import 'package:eshop/screens/home/home2Screen.dart';
+import 'package:eshop/screens/home/Onboard2.dart';
 import 'package:flutter/material.dart';
 
 class Homescreen extends StatelessWidget {
@@ -12,15 +12,44 @@ class Homescreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            margin: const EdgeInsets.only(top: 80, right: 10, left: 10),
-            child: Image.asset(
-              'assets/images/item(8).png',
-              width: 400,
-            ),
-          ),
+              height: 350,
+              width: double.infinity,
+              margin: const EdgeInsets.only(top: 80, right: 10, left: 10),
+              child: Stack(
+                children: [
+                  Positioned(
+                    child: Image.asset(
+                      'assets/images/item(8).png',
+                      width: double.infinity,
+                      fit: BoxFit.fitHeight,
+                    ),
+                  ),
+                  Positioned(
+                    top: 50,
+                    left: 50,
+                    child: Image.asset(
+                      'assets/images/point.png',
+                    ),
+                  ),
+                  Positioned(
+                    top: 330,
+                    left: 20,
+                    child: Image.asset(
+                      'assets/images/point.png',
+                    ),
+                  ),
+                  Positioned(
+                    top: 260,
+                    left: 320,
+                    child: Image.asset(
+                      'assets/images/point.png',
+                    ),
+                  ),
+                ],
+              )),
           const SizedBox(
             width: double.infinity,
-            height: 90,
+            height: 10,
           ),
           const Padding(
               padding: EdgeInsets.only(
