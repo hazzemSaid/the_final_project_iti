@@ -3,7 +3,6 @@ import 'package:eshop/screens/authScreens/forgetPassword.dart';
 import 'package:eshop/screens/authScreens/sgin_in.dart';
 import 'package:eshop/screens/authScreens/sginup.dart';
 import 'package:eshop/screens/home/Home.dart';
-import 'package:eshop/screens/splash/view/splashscreen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -29,14 +28,15 @@ class eshop extends StatelessWidget {
     return BlocProvider(
         create: (context) => AuthCubit(),
         child: MaterialApp(
+          home: Home(),
           routes: {
-            '/': (context) => const SplashScreen(),
+            //  '/': (context) => const SplashScreen(),
             '/Onboard1': (context) => const Onboard1(),
             '/Onboard2': (context) => const Onboard2(),
             '/sginin': (context) => SginIn(),
             '/sginup': (context) => SginUp(),
             '/forgot': (context) => const Forgetpassword(),
-            '/home': (context) => const Home(),
+            '/home': (context) => Home(),
           },
         ));
   }
