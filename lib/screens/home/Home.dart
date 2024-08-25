@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:eshop/cubit_product/productshose_cubit.dart';
+import 'package:eshop/screens/detailes/detailes.dart';
 import 'package:eshop/servies/product.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -196,7 +197,12 @@ class _HomeState extends State<Home> {
                             padding: const EdgeInsets.all(8.0),
                             child: GestureDetector(
                               onTap: () {
-                                print(index);
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => Detailes(
+                                              item: items[index],
+                                            )));
                               },
                               child: Container(
                                 height: 250,

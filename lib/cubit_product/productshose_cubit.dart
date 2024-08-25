@@ -20,4 +20,16 @@ class ProductshoseCubit extends Cubit<ProductshoseState> {
       emit(ProductshoseError(e.toString()));
     }
   }
+
+  //get single product py id
+  void getSingleProduct(int id) async {
+    emit(ProductshoseSingleLoading());
+    try {
+      final product = await Apicall().getProducts();
+      final singleproduct = product.firstWhere((element) => element.id == id);
+      emit(ProductshoseSingle(singleproduct));
+    } catch (e) {
+      emit(ProductshoseSingleError(e.toString()));
+    }
+  }
 }

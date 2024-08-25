@@ -23,3 +23,15 @@ class ProductshoseSearch extends ProductshoseState {
   final List<Product> products;
   ProductshoseSearch(this.products);
 }
+
+class ProductshoseSingle extends ProductshoseState {
+  final Product product;
+  ProductshoseSingle(this.product);
+}
+
+class ProductshoseSingleError extends ProductshoseState {
+  final String message;
+  ProductshoseSingleError(this.message);
+}
+
+class ProductshoseSingleLoading extends ProductshoseState {}

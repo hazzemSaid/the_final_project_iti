@@ -37,7 +37,7 @@ class eshop extends StatelessWidget {
           ),
         ],
         child: MaterialApp(routes: {
-          '/': (context) => SplashScreen(),
+          '/': (context) => const SplashScreen(),
           '/Onboard1': (context) => const Onboard1(),
           '/Onboard2': (context) => const Onboard2(),
           '/sginin': (context) => SginIn(),
