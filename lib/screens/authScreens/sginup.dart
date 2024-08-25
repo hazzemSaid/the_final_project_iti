@@ -8,14 +8,24 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
-class SginUp extends StatelessWidget {
+class SginUp extends StatefulWidget {
+  @override
+  State<SginUp> createState() => _SginUpState();
+}
+
+class _SginUpState extends State<SginUp> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   bool seePassword = true;
+
   String? email;
+
   String? name;
+
   String? password;
+
   bool loading = false;
+
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<AuthCubit, AuthState>(
@@ -115,7 +125,11 @@ class SginUp extends StatelessWidget {
                         height: 5,
                       ),
                       pfrom(
-                          onPressed: () {},
+                          onPressed: () {
+                            setState(() {
+                              seePassword = !seePassword;
+                            });
+                          },
                           seePassword: seePassword,
                           text: 'password',
                           hint: 'make a strong password',
