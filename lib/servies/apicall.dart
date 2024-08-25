@@ -5,7 +5,7 @@ import '/servies/product.dart';
 
 class Apicall {
   //https://shoes-collections.p.rapidapi.com/shoes
-  Future<List<Product>> getAllItems() async {
+  Future<List<Product>> getProducts() async {
     var url = Uri.parse('https://shoes-collections.p.rapidapi.com/shoes');
     var response = await http.get(url, headers: {
       'x-rapidapi-key': '4900da423dmsh28d468cb4fcca8dp1df97bjsnee3c7ba27386',

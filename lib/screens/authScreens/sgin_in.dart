@@ -3,6 +3,7 @@ import 'package:eshop/core/widgets/labeltext.dart';
 import 'package:eshop/core/widgets/passwordformtext.dart';
 import 'package:eshop/core/widgets/sginINwithgoogle.dart';
 import 'package:eshop/cubit/auth_cubit.dart';
+import 'package:eshop/cubit_product/productshose_cubit.dart';
 import 'package:eshop/screens/authScreens/sginup.dart';
 import 'package:eshop/screens/home/Home.dart';
 import 'package:flutter/material.dart';
@@ -35,6 +36,7 @@ class _SginInState extends State<SginIn> {
         }
         if (state is SginInSuccess) {
           loading = false;
+          BlocProvider.of<ProductshoseCubit>(context).getProducts();
           Navigator.push(
             context,
             MaterialPageRoute(

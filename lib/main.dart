@@ -1,4 +1,5 @@
 import 'package:eshop/cubit/auth_cubit.dart';
+import 'package:eshop/cubit_product/productshose_cubit.dart';
 import 'package:eshop/screens/authScreens/forgetPassword.dart';
 import 'package:eshop/screens/authScreens/sgin_in.dart';
 import 'package:eshop/screens/authScreens/sginup.dart';
@@ -26,8 +27,15 @@ class eshop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-        create: (context) => AuthCubit(),
+    return MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (context) => ProductshoseCubit(),
+          ),
+          BlocProvider(
+            create: (context) => AuthCubit(),
+          ),
+        ],
         child: MaterialApp(routes: {
           '/': (context) => SplashScreen(),
           '/Onboard1': (context) => const Onboard1(),

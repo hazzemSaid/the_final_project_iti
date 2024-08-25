@@ -1,3 +1,5 @@
+import 'dart:math';
+
 class Product {
   /*{
         "id": 1,
@@ -12,31 +14,26 @@ class Product {
         }*/
   final int id;
   final String name;
-  final double price;
   final String image;
   final String description;
-  final int quantity;
-  final Rating rating;
-
+  final String price;
   Product({
     required this.id,
     required this.name,
-    required this.price,
     required this.image,
     required this.description,
-    required this.quantity,
-    required this.rating,
+    required this.price,
   });
 
   factory Product.fromJson(Map<String, dynamic> json) {
     return Product(
       id: json['id'],
-      name: json['name'],
-      price: json['price'],
+      name: json['name']
+          .toString()
+          .substring(0, min(5, json['name'].toString().length)),
       image: json['image'],
       description: json['description'],
-      quantity: json['quantity'],
-      rating: Rating.fromJson(json['rating']),
+      price: "\$${json['price'].toString()}",
     );
   }
 }
