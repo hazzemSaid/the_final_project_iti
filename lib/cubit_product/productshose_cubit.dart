@@ -2,11 +2,12 @@ import 'package:bloc/bloc.dart';
 import 'package:eshop/servies/apicall.dart';
 import 'package:eshop/servies/product.dart';
 import 'package:meta/meta.dart';
+
 part 'productshose_state.dart';
 
 class ProductshoseCubit extends Cubit<ProductshoseState> {
   ProductshoseCubit() : super(ProductshoseInitial());
-
+  List<Product> favproduct = [];
   void getProducts() async {
     emit(ProductshoseLoading());
     try {
@@ -31,5 +32,10 @@ class ProductshoseCubit extends Cubit<ProductshoseState> {
     } catch (e) {
       emit(ProductshoseSingleError(e.toString()));
     }
+  }
+
+  //fav product
+  void favProduct(Product item) {
+    favproduct.add(item);
   }
 }

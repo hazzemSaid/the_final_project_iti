@@ -3,6 +3,7 @@ import 'package:eshop/cubit_product/productshose_cubit.dart';
 import 'package:eshop/screens/authScreens/forgetPassword.dart';
 import 'package:eshop/screens/authScreens/sgin_in.dart';
 import 'package:eshop/screens/authScreens/sginup.dart';
+import 'package:eshop/screens/favScreens/favScreen.dart';
 import 'package:eshop/screens/home/Home.dart';
 import 'package:eshop/screens/splash/view/splashscreen.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -44,6 +45,7 @@ class eshop extends StatelessWidget {
           '/sginup': (context) => SginUp(),
           '/forgot': (context) => const Forgetpassword(),
           '/home': (context) => Home(),
+          '/fav': (context) => const Favscreen(),
         }));
   }
 }

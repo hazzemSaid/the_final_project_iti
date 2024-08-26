@@ -21,6 +21,12 @@ class _HomeState extends State<Home> {
   bool londing = false;
 
   List<Product> items = List.empty();
+  List<Product> fav = List.empty();
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    fav = BlocProvider.of<ProductshoseCubit>(context).favproduct;
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<ProductshoseCubit, ProductshoseState>(
@@ -205,7 +211,7 @@ class _HomeState extends State<Home> {
                                             )));
                               },
                               child: Container(
-                                height: 250,
+                                height: 300,
                                 width: 250,
                                 color: Colors.white,
                                 child: Column(
@@ -216,7 +222,8 @@ class _HomeState extends State<Home> {
                                     Image.network(
                                       items[index].image,
                                       width: 150,
-                                      height: 150,
+                                      height: 100,
+                                      fit: BoxFit.cover,
                                     ),
                                     SizedBox(
                                       height: 10,
@@ -239,6 +246,8 @@ class _HomeState extends State<Home> {
                                           )),
                                     ),
                                     Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
                                       children: [
                                         Align(
                                           alignment: Alignment.topLeft,
@@ -252,15 +261,42 @@ class _HomeState extends State<Home> {
                                         ),
                                         Container(
                                           padding: const EdgeInsets.only(
-                                              left: 100, bottom: 5),
+                                              left: 50, top: 20, bottom: 20),
                                           child: IconButton(
                                               onPressed: () {
                                                 //i need to add the favorite item in the favorite list
                                                 //using bloc to do it and if it is already in the favorite list then remove it
                                               },
-                                              icon: const Icon(
-                                                FontAwesomeIcons.heart,
-                                                color: Colors.red,
+                                              icon: IconButton(
+                                                onPressed: () {
+                                                  if (fav
+                                                      .contains(items[index])) {
+                                                    BlocProvider.of<
+                                                                ProductshoseCubit>(
+                                                            context)
+                                                        .favproduct
+                                                        .remove(items[index]);
+                                                  } else {
+                                                    BlocProvider.of<
+                                                                ProductshoseCubit>(
+                                                            context)
+                                                        .favproduct
+                                                        .add(items[index]);
+                                                  }
+
+                                                  setState(() {
+                                                    fav = BlocProvider.of<
+                                                                ProductshoseCubit>(
+                                                            context)
+                                                        .favproduct;
+                                                  });
+                                                },
+                                                icon: Icon(
+                                                  fav.contains(items[index])
+                                                      ? Icons.favorite
+                                                      : Icons.favorite_border,
+                                                  color: Colors.red,
+                                                ),
                                               )),
                                         ),
                                       ],
@@ -395,7 +431,9 @@ class _HomeState extends State<Home> {
                                 ),
                               ),
                               IconButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.pushNamed(context, '/fav');
+                                },
                                 icon: const Icon(
                                   FontAwesomeIcons.heart,
                                 ),
