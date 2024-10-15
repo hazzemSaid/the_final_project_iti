@@ -1,8 +1,8 @@
 import 'dart:math';
 
-import 'package:eshop/features/detailes/presentation/viewmodel/cubit_product/productshose_cubit.dart';
-import 'package:eshop/features/detailes/presentation/view/screens/detailes.dart';
 import 'package:eshop/core/servies/product.dart';
+import 'package:eshop/features/detailes/presentation/view/screens/detailes.dart';
+import 'package:eshop/features/detailes/presentation/viewmodel/cubit_product/productshose_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -14,11 +14,10 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  List<String> prands = ['nike', 'addidas', 'puma', 'underarmard', 'converse'];
-
   int? indx;
   int? indxoficons;
   bool londing = false;
+  List<String> prands = ['nike', 'addidas', 'puma', 'underarmard', 'converse'];
 
   List<Product> items = List.empty();
   List<Product> fav = List.empty();
@@ -59,77 +58,11 @@ class _HomeState extends State<Home> {
                       height: 40,
                       width: double.infinity,
                     ),
-                    Row(
-                      children: [
-                        Container(
-                          height: 50,
-                          width: 50,
-                          decoration: const BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: Colors.white54,
-                          ),
-                          margin: const EdgeInsets.only(left: 40),
-                          child: const Icon(Icons.widgets),
-                        ),
-                        const SizedBox(
-                          width: 40,
-                        ),
-                        Column(
-                          children: [
-                            Container(
-                              child: const Text(
-                                "Store location",
-                                style: TextStyle(
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.black38,
-                                ),
-                              ),
-                            ),
-                            Container(
-                              child: const Row(
-                                children: [
-                                  Icon(
-                                    Icons.location_on,
-                                    color: Colors.red,
-                                  ),
-                                  Text(
-                                    "Mondolibug,Sylhet",
-                                    style: TextStyle(
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.black,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            )
-                          ],
-                        ),
-                        const SizedBox(
-                          width: 60,
-                        ),
-                        const Icon(
-                          FontAwesomeIcons.shopify,
-                          color: Colors.black,
-                        ),
-                      ],
-                    ),
+                    customappbar(),
                     const SizedBox(
                       height: 50,
                     ),
-                    Container(
-                      width: 350,
-                      child: TextField(
-                        decoration: InputDecoration(
-                          hintText: "Search",
-                          prefixIcon: const Icon(Icons.search),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(60),
-                          ),
-                        ),
-                      ),
-                    ),
+                    searchbar(),
                     const SizedBox(
                       height: 50,
                     ),
@@ -145,8 +78,9 @@ class _HomeState extends State<Home> {
                         itemBuilder: (context, index) {
                           return GestureDetector(
                             onTap: () {
-                              indx = index;
-                              setState(() {});
+                              setState(() {
+                                indx = index;
+                              });
                             },
                             child: Container(
                               margin: const EdgeInsets.only(left: 20),
@@ -485,4 +419,78 @@ class _HomeState extends State<Home> {
       },
     );
   }
+
+  Widget customappbar() {
+    return Row(
+      children: [
+        Container(
+          height: 50,
+          width: 50,
+          decoration: const BoxDecoration(
+            shape: BoxShape.circle,
+            color: Colors.white54,
+          ),
+          margin: const EdgeInsets.only(left: 40),
+          child: const Icon(Icons.widgets),
+        ),
+        const SizedBox(
+          width: 40,
+        ),
+        Column(
+          children: [
+            Container(
+              child: const Text(
+                "Store location",
+                style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black38,
+                ),
+              ),
+            ),
+            Container(
+              child: const Row(
+                children: [
+                  Icon(
+                    Icons.location_on,
+                    color: Colors.red,
+                  ),
+                  Text(
+                    "Mondolibug,Sylhet",
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
+                  ),
+                ],
+              ),
+            )
+          ],
+        ),
+        const SizedBox(
+          width: 60,
+        ),
+        const Icon(
+          FontAwesomeIcons.shopify,
+          color: Colors.black,
+        ),
+      ],
+    );
+  }
+}
+
+Widget searchbar() {
+  return Container(
+    width: 350,
+    child: TextField(
+      decoration: InputDecoration(
+        hintText: "Search",
+        prefixIcon: const Icon(Icons.search),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(60),
+        ),
+      ),
+    ),
+  );
 }
