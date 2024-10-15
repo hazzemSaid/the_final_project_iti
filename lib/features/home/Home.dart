@@ -1,7 +1,7 @@
 import 'dart:math';
 
-import 'package:eshop/cubit_product/productshose_cubit.dart';
-import 'package:eshop/features/detailes/detailes.dart';
+import 'package:eshop/features/detailes/presentation/viewmodel/cubit_product/productshose_cubit.dart';
+import 'package:eshop/features/detailes/presentation/view/screens/detailes.dart';
 import 'package:eshop/core/servies/product.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

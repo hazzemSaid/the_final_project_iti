@@ -1,7 +1,7 @@
-import 'package:eshop/features/bording/Onboard1.dart';
+import 'package:eshop/features/bording/presentations/view/screens/Onboard1.dart';
 import 'package:flutter/material.dart';
 
-import '../../../constrain.dart';
+import '../../../../../core/const/constrain.dart';
 
 class SplashBody extends StatefulWidget {
   const SplashBody({super.key});

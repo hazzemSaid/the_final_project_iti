@@ -1,5 +1,5 @@
-import 'package:eshop/cubit_product/productshose_cubit.dart';
-import 'package:eshop/features/authScreens/sgin_in.dart';
+import 'package:eshop/features/detailes/presentation/viewmodel/cubit_product/productshose_cubit.dart';
+import 'package:eshop/features/authScreens/presentation/view/screens/sgin_in.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
