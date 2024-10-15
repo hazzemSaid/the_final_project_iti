@@ -19,11 +19,6 @@ I’m thrilled to announce that I’ve successfully completed the **Mobile Devel
 
 For state management, I utilized **BLoC with Cubit** and implemented the **MVVM (Model-View-ViewModel)** architecture for better separation of concerns. For networking, I integrated **Dio** for seamless API calls, and I used **Postman** for thorough API testing. To handle failures gracefully, I implemented **Either** for robust error management.
 
-You can explore the various packages I used in this project on my GitHub:
-👉 [GitHub Repository](#)
-
-Additionally, you can check out the Figma design here:
-👉 [E-commerce Shoe App Design](#)
 
 A huge thank you to my instructors **Mohamed Alfalaky** and **Shaimaa Fakhraldin** for their guidance and dedication during the course! 🙏
 
