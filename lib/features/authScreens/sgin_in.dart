@@ -4,8 +4,8 @@ import 'package:eshop/core/widgets/passwordformtext.dart';
 import 'package:eshop/core/widgets/sginINwithgoogle.dart';
 import 'package:eshop/cubit/auth_cubit.dart';
 import 'package:eshop/cubit_product/productshose_cubit.dart';
-import 'package:eshop/screens/authScreens/sginup.dart';
-import 'package:eshop/screens/home/Home.dart';
+import 'package:eshop/features/authScreens/sginup.dart';
+import 'package:eshop/features/home/Home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
@@ -104,7 +104,7 @@ class _SginInState extends State<SginIn> {
                       Labeltext(text: "Email Address"),
                       Tfrom(
                           text: 'email',
-                          hint: 'examole@gmail.com',
+                          hint: 'example@gmail.com',
                           onChanged: (val) {
                             email = val;
                           }),
@@ -125,7 +125,7 @@ class _SginInState extends State<SginIn> {
                           },
                           seePassword: seePassword,
                           text: 'password',
-                          hint: 'make a strong password',
+                          hint: ' password',
                           onChanged: (val) {
                             password = val;
                           }),
@@ -136,8 +136,6 @@ class _SginInState extends State<SginIn> {
                       InkWell(
                         onTap: () async {
                           if (formKey.currentState!.validate()) {
-                            print(password);
-                            print(email);
                             await BlocProvider.of<AuthCubit>(context)
                                 .sgininwithemail(
                               emailAddress: email!,

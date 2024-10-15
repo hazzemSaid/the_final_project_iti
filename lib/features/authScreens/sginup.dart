@@ -3,7 +3,8 @@ import 'package:eshop/core/widgets/labeltext.dart';
 import 'package:eshop/core/widgets/passwordformtext.dart';
 import 'package:eshop/core/widgets/sginINwithgoogle.dart';
 import 'package:eshop/cubit/auth_cubit.dart';
-import 'package:eshop/screens/home/Home.dart';
+import 'package:eshop/cubit_product/productshose_cubit.dart';
+import 'package:eshop/features/home/Home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
@@ -34,6 +35,7 @@ class _SginUpState extends State<SginUp> {
           loading = true;
         } else if (state is SginUpSuccess) {
           loading = false;
+          BlocProvider.of<ProductshoseCubit>(context).getProducts();
           Navigator.push(
             context,
             MaterialPageRoute(
@@ -100,7 +102,7 @@ class _SginUpState extends State<SginUp> {
                       Labeltext(text: "Your Name"),
                       Tfrom(
                           text: 'Your Name',
-                          hint: 'Hazem',
+                          hint: 'Usre Name',
                           onChanged: (val) {
                             name = val;
                           }),
@@ -111,7 +113,7 @@ class _SginUpState extends State<SginUp> {
                       Labeltext(text: "Email Address"),
                       Tfrom(
                           text: 'email',
-                          hint: 'examole@gmail.com',
+                          hint: 'example@gmail.com',
                           onChanged: (val) {
                             email = val;
                           }),
@@ -144,8 +146,6 @@ class _SginUpState extends State<SginUp> {
                         onTap: () {
                           if (formKey.currentState!.validate()) {
                             if (email != null && password != null) {
-                              print('Email: $email');
-                              print('Password: $password');
                               BlocProvider.of<AuthCubit>(context)
                                   .sginupwithemail(
                                 emailAddress: email!,
@@ -193,7 +193,7 @@ class _SginUpState extends State<SginUp> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const Text('Don’t have an account?',
+                          const Text(' have an account?',
                               style: TextStyle(
                                 fontSize: 13,
                                 fontFamily: 'AirbnbCereal',
@@ -218,10 +218,10 @@ class _SginUpState extends State<SginUp> {
   GestureDetector go_sginup(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        print("sgin up");
+        Navigator.pushNamed(context, '/sginin');
       },
       child: const Text(
-        "Sgin Up for free",
+        "Sgin In ",
         style: TextStyle(
           color: Color.fromARGB(255, 3, 3, 4),
           fontSize: 13,

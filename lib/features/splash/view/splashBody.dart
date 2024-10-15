@@ -1,4 +1,4 @@
-import 'package:eshop/screens/bording/Onboard1.dart';
+import 'package:eshop/features/bording/Onboard1.dart';
 import 'package:flutter/material.dart';
 
 import '../../../constrain.dart';

@@ -1,8 +1,8 @@
 import 'dart:math';
 
 import 'package:eshop/cubit_product/productshose_cubit.dart';
-import 'package:eshop/screens/detailes/detailes.dart';
-import 'package:eshop/servies/product.dart';
+import 'package:eshop/features/detailes/detailes.dart';
+import 'package:eshop/core/servies/product.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -213,95 +213,102 @@ class _HomeState extends State<Home> {
                               child: Container(
                                 height: 300,
                                 width: 250,
-                                color: Colors.white,
-                                child: Column(
-                                  children: [
-                                    const SizedBox(
-                                      height: 10,
-                                    ),
-                                    Image.network(
-                                      items[index].image,
-                                      width: 150,
-                                      height: 100,
-                                      fit: BoxFit.cover,
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    const Align(
-                                      alignment: Alignment.topLeft,
-                                      child: Text("Best of the year",
-                                          style: TextStyle(
-                                            fontSize: 15,
-                                            color: Colors.cyan,
-                                            fontWeight: FontWeight.bold,
-                                          )),
-                                    ),
-                                    Align(
-                                      alignment: Alignment.topLeft,
-                                      child: Text(items[index].name,
-                                          style: const TextStyle(
-                                            fontSize: 25,
-                                            fontWeight: FontWeight.bold,
-                                          )),
-                                    ),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Align(
-                                          alignment: Alignment.topLeft,
-                                          child: Text(
-                                              items[index].price.toString(),
-                                              style: const TextStyle(
-                                                fontSize: 15,
-                                                fontWeight: FontWeight.bold,
-                                                color: Colors.black38,
-                                              )),
-                                        ),
-                                        Container(
-                                          padding: const EdgeInsets.only(
-                                              left: 50, top: 20, bottom: 20),
-                                          child: IconButton(
-                                              onPressed: () {
-                                                //i need to add the favorite item in the favorite list
-                                                //using bloc to do it and if it is already in the favorite list then remove it
-                                              },
-                                              icon: IconButton(
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(30),
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 20.0),
+                                  child: Column(
+                                    children: [
+                                      const SizedBox(
+                                        height: 10,
+                                      ),
+                                      Image.network(
+                                        items[index].image,
+                                        width: 150,
+                                        height: 100,
+                                        fit: BoxFit.cover,
+                                      ),
+                                      SizedBox(
+                                        height: 10,
+                                      ),
+                                      const Align(
+                                        alignment: Alignment.topLeft,
+                                        child: Text("Best of the year",
+                                            style: TextStyle(
+                                              fontSize: 15,
+                                              color: Colors.cyan,
+                                              fontWeight: FontWeight.bold,
+                                            )),
+                                      ),
+                                      Align(
+                                        alignment: Alignment.topLeft,
+                                        child: Text(items[index].name,
+                                            style: const TextStyle(
+                                              fontSize: 25,
+                                              fontWeight: FontWeight.bold,
+                                            )),
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Align(
+                                            alignment: Alignment.topLeft,
+                                            child: Text(
+                                                items[index].price.toString(),
+                                                style: const TextStyle(
+                                                  fontSize: 15,
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Colors.black38,
+                                                )),
+                                          ),
+                                          Container(
+                                            padding: const EdgeInsets.only(
+                                                left: 50, top: 20, bottom: 20),
+                                            child: IconButton(
                                                 onPressed: () {
-                                                  if (fav
-                                                      .contains(items[index])) {
-                                                    BlocProvider.of<
-                                                                ProductshoseCubit>(
-                                                            context)
-                                                        .favproduct
-                                                        .remove(items[index]);
-                                                  } else {
-                                                    BlocProvider.of<
-                                                                ProductshoseCubit>(
-                                                            context)
-                                                        .favproduct
-                                                        .add(items[index]);
-                                                  }
-
-                                                  setState(() {
-                                                    fav = BlocProvider.of<
-                                                                ProductshoseCubit>(
-                                                            context)
-                                                        .favproduct;
-                                                  });
+                                                  //i need to add the favorite item in the favorite list
+                                                  //using bloc to do it and if it is already in the favorite list then remove it
                                                 },
-                                                icon: Icon(
-                                                  fav.contains(items[index])
-                                                      ? Icons.favorite
-                                                      : Icons.favorite_border,
-                                                  color: Colors.red,
-                                                ),
-                                              )),
-                                        ),
-                                      ],
-                                    )
-                                  ],
+                                                icon: IconButton(
+                                                  onPressed: () {
+                                                    if (fav.contains(
+                                                        items[index])) {
+                                                      BlocProvider.of<
+                                                                  ProductshoseCubit>(
+                                                              context)
+                                                          .favproduct
+                                                          .remove(items[index]);
+                                                    } else {
+                                                      BlocProvider.of<
+                                                                  ProductshoseCubit>(
+                                                              context)
+                                                          .favproduct
+                                                          .add(items[index]);
+                                                    }
+
+                                                    setState(() {
+                                                      fav = BlocProvider.of<
+                                                                  ProductshoseCubit>(
+                                                              context)
+                                                          .favproduct;
+                                                    });
+                                                  },
+                                                  icon: Icon(
+                                                    fav.contains(items[index])
+                                                        ? Icons.favorite
+                                                        : Icons.favorite_border,
+                                                    color: Colors.red,
+                                                  ),
+                                                )),
+                                          ),
+                                        ],
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),

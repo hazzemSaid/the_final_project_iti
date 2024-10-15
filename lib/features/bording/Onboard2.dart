@@ -1,5 +1,5 @@
 import 'package:eshop/cubit_product/productshose_cubit.dart';
-import 'package:eshop/screens/home/Home.dart';
+import 'package:eshop/features/authScreens/sgin_in.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -98,7 +98,7 @@ class Onboard2 extends StatelessWidget {
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => Home(),
+                  builder: (context) => SginIn(),
                 ),
               );
             },

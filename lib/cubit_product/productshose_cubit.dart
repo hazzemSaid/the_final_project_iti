@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
-import 'package:eshop/servies/apicall.dart';
-import 'package:eshop/servies/product.dart';
+import 'package:eshop/core/servies/apicall.dart';
+import 'package:eshop/core/servies/product.dart';
 import 'package:meta/meta.dart';
 
 part 'productshose_state.dart';

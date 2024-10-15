@@ -1,18 +1,18 @@
 import 'package:eshop/cubit/auth_cubit.dart';
 import 'package:eshop/cubit_product/productshose_cubit.dart';
-import 'package:eshop/screens/authScreens/forgetPassword.dart';
-import 'package:eshop/screens/authScreens/sgin_in.dart';
-import 'package:eshop/screens/authScreens/sginup.dart';
-import 'package:eshop/screens/favScreens/favScreen.dart';
-import 'package:eshop/screens/home/Home.dart';
-import 'package:eshop/screens/splash/view/splashscreen.dart';
+import 'package:eshop/features/authScreens/forgetPassword.dart';
+import 'package:eshop/features/authScreens/sgin_in.dart';
+import 'package:eshop/features/authScreens/sginup.dart';
+import 'package:eshop/features/favScreens/favScreen.dart';
+import 'package:eshop/features/home/Home.dart';
+import 'package:eshop/features/splash/view/splashscreen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'firebase_options.dart';
-import 'screens/bording/Onboard1.dart';
-import 'screens/bording/Onboard2.dart';
+import 'features/bording/Onboard1.dart';
+import 'features/bording/Onboard2.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

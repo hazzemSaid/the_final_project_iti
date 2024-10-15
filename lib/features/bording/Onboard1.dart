@@ -1,4 +1,4 @@
-import 'package:eshop/screens/bording/Onboard2.dart';
+import 'package:eshop/features/bording/Onboard2.dart';
 import 'package:flutter/material.dart';
 
 class Onboard1 extends StatelessWidget {

@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 
-import '/servies/product.dart';
+import 'product.dart';
 
 class Apicall {
   //https://shoes-collections.p.rapidapi.com/shoes
